@@ -85,6 +85,7 @@ public function store(Request $request , FlasherInterface $flasher)
     // Input validation
     $request->validate([
         'name' => 'required|string|max:255',
+        'photo' => 'required|file|mimes:jpeg,png|max:2048',
         'dob' => 'required|date',
         'gender' => 'required|in:male,female,other',
         'nationality' => 'required|string|max:50',
@@ -97,7 +98,6 @@ public function store(Request $request , FlasherInterface $flasher)
         'email' => 'required|email|max:255|unique:students',
         'emergency_contact' => 'required',
         'marital_status' => 'required|string|max:50',
-        'passport_number' => 'nullable|string|max:50',
         'father_name' => 'required|string|max:255',
         'father_phone' => 'required',
         'father_education' => 'nullable|string|max:255',
@@ -107,7 +107,6 @@ public function store(Request $request , FlasherInterface $flasher)
         'mother_education' => 'nullable|string|max:255',
         'mother_occupation' => 'nullable|string|max:255',
         'family_income' => 'nullable|numeric|min:0',
-        'total_family_members' => 'nullable|integer|min:1',
         'guardian_name' => 'nullable|string|max:255',
         'guardian_relation' => 'nullable|string|max:50',
         'guardian_occupation' => 'nullable|string|max:255',
@@ -116,35 +115,22 @@ public function store(Request $request , FlasherInterface $flasher)
         'ssc_reg' => 'nullable|string|max:50',
         'ssc_result' => 'nullable|string|max:50',
         'ssc_board' => 'nullable|string|max:50',
-        'ssc_testimonial' => 'nullable|file|mimes:pdf|max:2048',
-        'ssc_marksheet' => 'nullable|file|mimes:pdf|max:2048',
         'previous_school' => 'nullable|string|max:255',
-        'previous_school_address' => 'nullable|string|max:255',
         'admission_test_roll' => 'nullable|string|max:50',
         'admission_test_result' => 'nullable|string|max:50',
-        'transfer_certificate' => 'nullable|file|mimes:pdf|max:2048',
         'scholarship_info' => 'nullable|string|max:255',
-        'scholarship_proof' => 'nullable|file|mimes:pdf|max:2048',
         'teacher_reference' => 'nullable|string|max:255',
         'admite_date' => 'required|date',
         'course' => 'required|string|max:100',
         'admission_fee' => 'required|numeric|min:0',
-        'admission_fee_receipt' => 'nullable|file|mimes:pdf|max:2048',
         'disabilities' => 'nullable|string|max:255',
         'health_insurance' => 'nullable|string|max:255',
         'extra_curriculum' => 'nullable|string|max:255',
-        'agreement' => 'nullable|file|mimes:pdf|max:2048',
-        'student_signature' => 'nullable|file|mimes:jpeg,png|max:2048',
     ]);
 
     // Handle file uploads
     $files = [
-        'ssc_testimonial' => $request->file('ssc_testimonial'),
-        'ssc_marksheet' => $request->file('ssc_marksheet'),
-        'transfer_certificate' => $request->file('transfer_certificate'),
-        'scholarship_proof' => $request->file('scholarship_proof'),
-        'admission_fee_receipt' => $request->file('admission_fee_receipt'),
-        'agreement' => $request->file('agreement'),
+        'photo' => $request->file('photo'),
         'student_signature' => $request->file('student_signature'),
     ];
 
@@ -160,6 +146,7 @@ public function store(Request $request , FlasherInterface $flasher)
     $student = new Student();
 
     $student->name = $request->name;
+    $student->photo = $request->photo;
     $student->dob = $request->dob;
     $student->gender = $request->gender;
     $student->nationality = $request->nationality;
@@ -172,7 +159,6 @@ public function store(Request $request , FlasherInterface $flasher)
     $student->email = $request->email;
     $student->emergency_contact = $request->emergency_contact;
     $student->marital_status = $request->marital_status;
-    $student->passport_number = $request->passport_number;
     $student->father_name = $request->father_name;
     $student->father_phone = $request->father_phone;
     $student->father_education = $request->father_education;
@@ -182,7 +168,6 @@ public function store(Request $request , FlasherInterface $flasher)
     $student->mother_education = $request->mother_education;
     $student->mother_occupation = $request->mother_occupation;
     $student->family_income = $request->family_income;
-    $student->total_family_members = $request->total_family_members;
     $student->guardian_name = $request->guardian_name;
     $student->guardian_relation = $request->guardian_relation;
     $student->guardian_occupation = $request->guardian_occupation;
@@ -191,25 +176,17 @@ public function store(Request $request , FlasherInterface $flasher)
     $student->ssc_reg = $request->ssc_reg;
     $student->ssc_result = $request->ssc_result;
     $student->ssc_board = $request->ssc_board;
-    $student->ssc_testimonial = $request->ssc_testimonial;
-    $student->ssc_marksheet = $request->ssc_marksheet;
     $student->previous_school = $request->previous_school;
-    $student->previous_school_address = $request->previous_school_address;
     $student->admission_test_roll = $request->admission_test_roll;
     $student->admission_test_result = $request->admission_test_result;
-    $student->transfer_certificate = $request->transfer_certificate;
     $student->scholarship_info = $request->scholarship_info;
-    $student->scholarship_proof = $request->scholarship_proof;
     $student->teacher_reference = $request->teacher_reference;
     $student->admite_date = $request->admite_date;
     $student->course = $request->course;
     $student->admission_fee = $request->admission_fee;
-    $student->admission_fee_receipt = $request->admission_fee_receipt;
     $student->disabilities = $request->disabilities;
     $student->health_insurance = $request->health_insurance;
     $student->extra_curriculum = $request->extra_curriculum;
-    $student->agreement = $request->agreement;
-    $student->student_signature = $request->student_signature;
 
     $student->save();
 
@@ -285,5 +262,13 @@ public function store(Request $request , FlasherInterface $flasher)
         $student->delete();
         $this->flasher->addSuccess('Student deleted successfully!');
         return redirect()->route('students.index');
+    }
+
+
+    public function studentshow($id)
+    {
+        $student = Student::findOrFail($id); // Fetch the student data from the database
+
+        return view('students.student_cv', compact('student'));
     }
 }

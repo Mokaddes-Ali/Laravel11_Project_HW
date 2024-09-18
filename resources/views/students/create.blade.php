@@ -186,7 +186,7 @@
 @endsection
  --}}
 
-{{--
+
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  <style>
     .form-control {
@@ -388,15 +388,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
-            <!-- Passport Number -->
-            <div class="form-group col-md-4">
-                <label for="passport_number">Passport Number:</label>
-                <input type="text" id="passport_number" name="passport_number" value="{{ old('passport_number') }}" class="form-control @error('passport_number') is-invalid @enderror">
-                @error('passport_number')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
         </div>
 
         <div class="form-row">
@@ -513,14 +504,6 @@
         </div>
 
         <div class="form-row">
-            <!-- Total Family Members -->
-            <div class="form-group col-md-4">
-                <label for="total_family_members">Total Family Members:</label>
-                <input type="number" id="total_family_members" name="total_family_members" value="{{ old('total_family_members') }}" class="form-control @error('total_family_members') is-invalid @enderror">
-                @error('total_family_members')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
 
             <!-- Guardian Name -->
             <div class="form-group col-md-4">
@@ -617,23 +600,6 @@
         </div>
 
         <div class="form-row">
-            <!-- SSC Testimonial -->
-            <div class="form-group col-md-4">
-                <label for="ssc_testimonial">SSC Testimonial:</label>
-                <input type="file" id="ssc_testimonial" name="ssc_testimonial" class="form-control @error('ssc_testimonial') is-invalid @enderror">
-                @error('ssc_testimonial')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- SSC Marksheet -->
-            <div class="form-group col-md-4">
-                <label for="ssc_marksheet">SSC Marksheet:</label>
-                <input type="file" id="ssc_marksheet" name="ssc_marksheet" class="form-control @error('ssc_marksheet') is-invalid @enderror">
-                @error('ssc_marksheet')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
 
             <!-- Previous School -->
             <div class="form-group col-md-4">
@@ -646,14 +612,6 @@
         </div>
 
         <div class="form-row">
-            <!-- Previous School Address -->
-            <div class="form-group col-md-4">
-                <label for="previous_school_address">Previous School Address:</label>
-                <input type="text" id="previous_school_address" name="previous_school_address" value="{{ old('previous_school_address') }}" class="form-control @error('previous_school_address') is-invalid @enderror">
-                @error('previous_school_address')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
 
             <!-- Admission Test Roll -->
             <div class="form-group col-md-4">
@@ -675,29 +633,12 @@
         </div>
 
         <div class="form-row">
-            <!-- Transfer Certificate -->
-            <div class="form-group col-md-4">
-                <label for="transfer_certificate">Transfer Certificate:</label>
-                <input type="file" id="transfer_certificate" name="transfer_certificate" class="form-control @error('transfer_certificate') is-invalid @enderror">
-                @error('transfer_certificate')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
 
             <!-- Scholarship Info -->
             <div class="form-group col-md-4">
                 <label for="scholarship_info">Scholarship Info:</label>
                 <input type="text" id="scholarship_info" name="scholarship_info" value="{{ old('scholarship_info') }}" class="form-control @error('scholarship_info') is-invalid @enderror">
                 @error('scholarship_info')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Scholarship Proof -->
-            <div class="form-group col-md-4">
-                <label for="scholarship_proof">Scholarship Proof:</label>
-                <input type="file" id="scholarship_proof" name="scholarship_proof" class="form-control @error('scholarship_proof') is-invalid @enderror">
-                @error('scholarship_proof')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
@@ -712,514 +653,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
-            <!-- Reference Number -->
-            <div class="form-group col-md-4">
-                <label for="reference_number">Reference Number:</label>
-                <input type="text" id="reference_number" name="reference_number" value="{{ old('reference_number') }}" class="form-control @error('reference_number') is-invalid @enderror">
-                @error('reference_number')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Admission Date -->
-            <div class="form-group col-md-4">
-                <label for="admission_date">Admission Date:</label>
-                <input type="date" id="admission_date" name="admission_date" value="{{ old('admission_date') }}" class="form-control @error('admission_date') is-invalid @enderror">
-                @error('admission_date')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-        </div>
-
-        <div class="form-row">
-            <!-- Student Photo -->
-            <div class="form-group col-md-4">
-                <label for="student_photo">Student Photo:</label>
-                <input type="file" id="student_photo" name="student_photo" class="form-control @error('student_photo') is-invalid @enderror">
-                @error('student_photo')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Certificate Photo -->
-            <div class="form-group col-md-4">
-                <label for="certificate_photo">Certificate Photo:</label>
-                <input type="file" id="certificate_photo" name="certificate_photo" class="form-control @error('certificate_photo') is-invalid @enderror">
-                @error('certificate_photo')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Birth Certificate Photo -->
-            <div class="form-group col-md-4">
-                <label for="birth_certificate_photo">Birth Certificate Photo:</label>
-                <input type="file" id="birth_certificate_photo" name="birth_certificate_photo" class="form-control @error('birth_certificate_photo') is-invalid @enderror">
-                @error('birth_certificate_photo')
-                    <div class="error-message">{{ $message }}</div>
-                @enderror
-            </div>
-        </div>
-
-        <!-- Form Submit -->
-        <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
-</div>
-
-@endsection --}}
-
-
-@extends('layouts.master')
-
-@section('content')
-<div class="container mt-5">
-    <h2>Create Profile</h2>
-
-    <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-
-        <!-- Personal Information -->
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
-            @error('name')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="photo" class="form-label">Photo</label>
-            <input type="file" class="form-control @error('photo') is-invalid @enderror" id="photo" name="photo">
-            @error('photo')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="dob" class="form-label">Date of Birth</label>
-            <input type="date" class="form-control @error('dob') is-invalid @enderror" id="dob" name="dob" value="{{ old('dob') }}">
-            @error('dob')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="gender" class="form-label">Gender</label>
-            <select class="form-select @error('gender') is-invalid @enderror" id="gender" name="gender">
-                <option value="">Select Gender</option>
-                <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
-                <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
-            </select>
-            @error('gender')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="nationality" class="form-label">Nationality</label>
-            <input type="text" class="form-control @error('nationality') is-invalid @enderror" id="nationality" name="nationality" value="{{ old('nationality') }}">
-            @error('nationality')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="religion" class="form-label">Religion</label>
-            <input type="text" class="form-control @error('religion') is-invalid @enderror" id="religion" name="religion" value="{{ old('religion') }}">
-            @error('religion')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="blood_group" class="form-label">Blood Group</label>
-            <input type="text" class="form-control @error('blood_group') is-invalid @enderror" id="blood_group" name="blood_group" value="{{ old('blood_group') }}">
-            @error('blood_group')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="national_id" class="form-label">National ID</label>
-            <input type="text" class="form-control @error('national_id') is-invalid @enderror" id="national_id" name="national_id" value="{{ old('national_id') }}">
-            @error('national_id')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="permanent_address" class="form-label">Permanent Address</label>
-            <textarea class="form-control @error('permanent_address') is-invalid @enderror" id="permanent_address" name="permanent_address">{{ old('permanent_address') }}</textarea>
-            @error('permanent_address')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="current_address" class="form-label">Current Address</label>
-            <textarea class="form-control @error('current_address') is-invalid @enderror" id="current_address" name="current_address">{{ old('current_address') }}</textarea>
-            @error('current_address')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}">
-            @error('phone')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
-            @error('email')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="emergency_contact" class="form-label">Emergency Contact</label>
-            <input type="text" class="form-control @error('emergency_contact') is-invalid @enderror" id="emergency_contact" name="emergency_contact" value="{{ old('emergency_contact') }}">
-            @error('emergency_contact')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="marital_status" class="form-label">Marital Status</label>
-            <select class="form-select @error('marital_status') is-invalid @enderror" id="marital_status" name="marital_status">
-                <option value="">Select Marital Status</option>
-                <option value="single" {{ old('marital_status') == 'single' ? 'selected' : '' }}>Single</option>
-                <option value="married" {{ old('marital_status') == 'married' ? 'selected' : '' }}>Married</option>
-            </select>
-            @error('marital_status')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="passport_number" class="form-label">Passport Number</label>
-            <input type="text" class="form-control @error('passport_number') is-invalid @enderror" id="passport_number" name="passport_number" value="{{ old('passport_number') }}">
-            @error('passport_number')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <!-- Guardian Information -->
-        <div class="mb-3">
-            <label for="father_name" class="form-label">Father's Name</label>
-            <input type="text" class="form-control @error('father_name') is-invalid @enderror" id="father_name" name="father_name" value="{{ old('father_name') }}">
-            @error('father_name')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="father_phone" class="form-label">Father's Phone</label>
-            <input type="text" class="form-control @error('father_phone') is-invalid @enderror" id="father_phone" name="father_phone" value="{{ old('father_phone') }}">
-            @error('father_phone')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="father_education" class="form-label">Father's Education</label>
-            <input type="text" class="form-control @error('father_education') is-invalid @enderror" id="father_education" name="father_education" value="{{ old('father_education') }}">
-            @error('father_education')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="father_occupation" class="form-label">Father's Occupation</label>
-            <input type="text" class="form-control @error('father_occupation') is-invalid @enderror" id="father_occupation" name="father_occupation" value="{{ old('father_occupation') }}">
-            @error('father_occupation')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="mother_name" class="form-label">Mother's Name</label>
-            <input type="text" class="form-control @error('mother_name') is-invalid @enderror" id="mother_name" name="mother_name" value="{{ old('mother_name') }}">
-            @error('mother_name')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="mother_phone" class="form-label">Mother's Phone</label>
-            <input type="text" class="form-control @error('mother_phone') is-invalid @enderror" id="mother_phone" name="mother_phone" value="{{ old('mother_phone') }}">
-            @error('mother_phone')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="mother_education" class="form-label">Mother's Education</label>
-            <input type="text" class="form-control @error('mother_education') is-invalid @enderror" id="mother_education" name="mother_education" value="{{ old('mother_education') }}">
-            @error('mother_education')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="mother_occupation" class="form-label">Mother's Occupation</label>
-            <input type="text" class="form-control @error('mother_occupation') is-invalid @enderror" id="mother_occupation" name="mother_occupation" value="{{ old('mother_occupation') }}">
-            @error('mother_occupation')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="family_income" class="form-label">Family Income</label>
-            <input type="text" class="form-control @error('family_income') is-invalid @enderror" id="family_income" name="family_income" value="{{ old('family_income') }}">
-            @error('family_income')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="total_family_members" class="form-label">Total Family Members</label>
-            <input type="number" class="form-control @error('total_family_members') is-invalid @enderror" id="total_family_members" name="total_family_members" value="{{ old('total_family_members') }}">
-            @error('total_family_members')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="guardian_name" class="form-label">Guardian's Name</label>
-            <input type="text" class="form-control @error('guardian_name') is-invalid @enderror" id="guardian_name" name="guardian_name" value="{{ old('guardian_name') }}">
-            @error('guardian_name')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="guardian_relation" class="form-label">Guardian's Relation</label>
-            <input type="text" class="form-control @error('guardian_relation') is-invalid @enderror" id="guardian_relation" name="guardian_relation" value="{{ old('guardian_relation') }}">
-            @error('guardian_relation')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="guardian_occupation" class="form-label">Guardian's Occupation</label>
-            <input type="text" class="form-control @error('guardian_occupation') is-invalid @enderror" id="guardian_occupation" name="guardian_occupation" value="{{ old('guardian_occupation') }}">
-            @error('guardian_occupation')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="guardian_number" class="form-label">Guardian's Number</label>
-            <input type="text" class="form-control @error('guardian_number') is-invalid @enderror" id="guardian_number" name="guardian_number" value="{{ old('guardian_number') }}">
-            @error('guardian_number')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <!-- Educational Information -->
-        <div class="mb-3">
-            <label for="ssc_roll" class="form-label">SSC Roll</label>
-            <input type="text" class="form-control @error('ssc_roll') is-invalid @enderror" id="ssc_roll" name="ssc_roll" value="{{ old('ssc_roll') }}">
-            @error('ssc_roll')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="ssc_reg" class="form-label">SSC Registration</label>
-            <input type="text" class="form-control @error('ssc_reg') is-invalid @enderror" id="ssc_reg" name="ssc_reg" value="{{ old('ssc_reg') }}">
-            @error('ssc_reg')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="ssc_result" class="form-label">SSC Result</label>
-            <input type="text" class="form-control @error('ssc_result') is-invalid @enderror" id="ssc_result" name="ssc_result" value="{{ old('ssc_result') }}">
-            @error('ssc_result')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="ssc_board" class="form-label">SSC Board</label>
-            <input type="text" class="form-control @error('ssc_board') is-invalid @enderror" id="ssc_board" name="ssc_board" value="{{ old('ssc_board') }}">
-            @error('ssc_board')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="ssc_testimonial" class="form-label">SSC Testimonial</label>
-            <input type="file" class="form-control @error('ssc_testimonial') is-invalid @enderror" id="ssc_testimonial" name="ssc_testimonial">
-            @error('ssc_testimonial')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="ssc_marksheet" class="form-label">SSC Marksheet</label>
-            <input type="file" class="form-control @error('ssc_marksheet') is-invalid @enderror" id="ssc_marksheet" name="ssc_marksheet">
-            @error('ssc_marksheet')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="previous_school" class="form-label">Previous School</label>
-            <input type="text" class="form-control @error('previous_school') is-invalid @enderror" id="previous_school" name="previous_school" value="{{ old('previous_school') }}">
-            @error('previous_school')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="previous_school_address" class="form-label">Previous School Address</label>
-            <textarea class="form-control @error('previous_school_address') is-invalid @enderror" id="previous_school_address" name="previous_school_address">{{ old('previous_school_address') }}</textarea>
-            @error('previous_school_address')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="admission_test_roll" class="form-label">Admission Test Roll</label>
-            <input type="text" class="form-control @error('admission_test_roll') is-invalid @enderror" id="admission_test_roll" name="admission_test_roll" value="{{ old('admission_test_roll') }}">
-            @error('admission_test_roll')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="admission_test_result" class="form-label">Admission Test Result</label>
-            <input type="text" class="form-control @error('admission_test_result') is-invalid @enderror" id="admission_test_result" name="admission_test_result" value="{{ old('admission_test_result') }}">
-            @error('admission_test_result')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="transfer_certificate" class="form-label">Transfer Certificate</label>
-            <input type="file" class="form-control @error('transfer_certificate') is-invalid @enderror" id="transfer_certificate" name="transfer_certificate">
-            @error('transfer_certificate')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="scholarship_info" class="form-label">Scholarship Information</label>
-            <input type="text" class="form-control @error('scholarship_info') is-invalid @enderror" id="scholarship_info" name="scholarship_info" value="{{ old('scholarship_info') }}">
-            @error('scholarship_info')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="scholarship_proof" class="form-label">Scholarship Proof</label>
-            <input type="file" class="form-control @error('scholarship_proof') is-invalid @enderror" id="scholarship_proof" name="scholarship_proof">
-            @error('scholarship_proof')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="teacher_reference" class="form-label">Teacher Reference</label>
-            <input type="text" class="form-control @error('teacher_reference') is-invalid @enderror" id="teacher_reference" name="teacher_reference" value="{{ old('teacher_reference') }}">
-            @error('teacher_reference')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
 
         <!-- Admission Information -->
         <div class="mb-3">
@@ -1251,17 +684,6 @@
                 </div>
             @enderror
         </div>
-
-        <div class="mb-3">
-            <label for="admission_fee_receipt" class="form-label">Admission Fee Receipt</label>
-            <input type="file" class="form-control @error('admission_fee_receipt') is-invalid @enderror" id="admission_fee_receipt" name="admission_fee_receipt">
-            @error('admission_fee_receipt')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
         <!-- Other Information -->
         <div class="mb-3">
             <label for="disabilities" class="form-label">Disabilities</label>
@@ -1292,27 +714,6 @@
                 </div>
             @enderror
         </div>
-
-        <div class="mb-3">
-            <label for="agreement" class="form-label">Agreement</label>
-            <input type="file" class="form-control @error('agreement') is-invalid @enderror" id="agreement" name="agreement">
-            @error('agreement')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
-        <div class="mb-3">
-            <label for="student_signature" class="form-label">Student's Signature</label>
-            <input type="file" class="form-control @error('student_signature') is-invalid @enderror" id="student_signature" name="student_signature">
-            @error('student_signature')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-        </div>
-
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>

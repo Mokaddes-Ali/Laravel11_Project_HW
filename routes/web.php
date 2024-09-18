@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function () {
     Route::get('students/{id}/edit', [StudentController::class, 'edit'])->name('students.edit');
     Route::put('students/{id}', [StudentController::class, 'update'])->name('students.update');
     Route::delete('students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
+    Route::get('/student-cv/{id}', [StudentController::class, 'studentshow'])->name('student.cv');
     });
 
 Route::middleware('auth')->group(function () {

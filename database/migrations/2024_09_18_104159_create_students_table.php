@@ -45,13 +45,12 @@ public function up()
         $table->string('religion');
         $table->string('blood_group')->nullable();
         $table->string('national_id')->nullable();
-        $table->text('permanent_address');
+        $table->text('permanent_address')->nullable();
         $table->text('current_address')->nullable();
         $table->string('phone');
         $table->string('email')->unique();
         $table->string('emergency_contact');
         $table->string('marital_status')->nullable();
-        $table->string('passport_number')->nullable();
         $table->string('father_name')->nullable();
         $table->string('father_phone')->nullable();
         $table->string('father_education')->nullable();
@@ -61,7 +60,6 @@ public function up()
         $table->string('mother_education')->nullable();
         $table->string('mother_occupation')->nullable();
         $table->decimal('family_income', 15, 2)->nullable();
-        $table->integer('total_family_members')->nullable();
         $table->string('guardian_name')->nullable();
         $table->string('guardian_relation')->nullable();
         $table->string('guardian_occupation')->nullable();
@@ -70,15 +68,10 @@ public function up()
         $table->string('ssc_reg')->nullable();
         $table->string('ssc_result')->nullable();
         $table->string('ssc_board')->nullable();
-        $table->string('ssc_testimonial')->nullable();
-        $table->string('ssc_marksheet')->nullable();
         $table->string('previous_school')->nullable();
-        $table->text('previous_school_address')->nullable();
         $table->string('admission_test_roll')->nullable();
         $table->string('admission_test_result')->nullable();
-        $table->string('transfer_certificate')->nullable();
         $table->string('scholarship_info')->nullable();
-        $table->string('scholarship_proof')->nullable();
         $table->string('teacher_reference')->nullable();
         $table->date('admite_date')->nullable();
         $table->string('course')->nullable();
@@ -87,8 +80,6 @@ public function up()
         $table->text('disabilities')->nullable();
         $table->text('health_insurance')->nullable();
         $table->text('extra_curriculum')->nullable();
-        $table->text('agreement')->nullable();
-        $table->text('student_signature')->nullable();
         $table->timestamps();
     });
 }
