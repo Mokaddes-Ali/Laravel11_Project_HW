@@ -20,7 +20,7 @@
 
             <div class="col-md-6 mb-3">
                 <label for="date_of_birth" class="form-label">Date of Birth</label>
-                <input type="date" name="date_of_birth" id="date_of_birth" class="form-control custom-input" value="{{ old('date_of_birth', $student->date_of_birth) }}" placeholder="Select Date">
+                <input type="date" name="date_of_birth" id="date_of_birth" class="form-control custom-input" value="{{ old('date_of_birth', $student->date_of_birth) }}">
                 @error('date_of_birth')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
@@ -150,6 +150,7 @@
             <div class="col-md-6 mb-3">
                 <label for="profile_picture" class="form-label">Profile Picture</label>
                 <input type="file" name="profile_picture" id="profile_picture" class="form-control custom-input">
+                <img src="{{ asset('images/' .$student->profile_image) }}" alt="img" width="50" height="50">
                 @error('profile_picture')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror

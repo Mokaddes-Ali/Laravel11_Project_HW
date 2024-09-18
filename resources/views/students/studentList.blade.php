@@ -42,11 +42,7 @@
                         <td class=" border-b">{{$student->admission_fee }}</td>
                         <td class=" border-b">{{$student->aditional_note }}</td>
                         <td class=" border-b">
-                            @if ($student->profile_image)
-                                <img src="{{ asset('storage/' . $student->profile_image) }}" alt="Profile Image" class="w-16 h-16 object-cover">
-                            @else
-                                No Image
-                            @endif
+                            <img src="{{ asset('images/' .$student->profile_image) }}" alt="img" width="50" height="50">
                         </td>
                         <td class="py-2 px-4 border-b">
                             <a href="{{ route('students.edit', $student->id) }}" class="text-blue-500 hover:underline">Edit</a>

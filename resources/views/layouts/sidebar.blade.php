@@ -34,7 +34,7 @@
                 <a class="nav-link" href="/students/create">Buttons</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
+                <a class="nav-link" href="/students">Dropdowns</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
