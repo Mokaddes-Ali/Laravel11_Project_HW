@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Flasher\Prime\FlasherInterface;
 
 class StudentController extends Controller
 {
@@ -20,7 +21,7 @@ class StudentController extends Controller
         return view('students.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
 {
     // Input validation
     $request->validate([
@@ -70,11 +71,9 @@ class StudentController extends Controller
 
     $student->save();
 
-    if ($student) {
-        return redirect()-> route('students.index') -> with('success', 'Data inserted successfully');
-    } else {
-        return back()->with('fail', 'Data insertion failed');
-    }
+    $flasher->addSuccess('Student added successfully!');
+
+        return redirect()-> route('students.index');
 
 
 }
