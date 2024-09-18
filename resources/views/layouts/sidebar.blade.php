@@ -1,7 +1,7 @@
  <!-- partial -->
  <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_sidebar.html -->
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <nav class="sidebar  sidebar-offcanvas" id="sidebar">
       <ul class="nav">
         <li class="nav-item nav-profile">
           <a href="#" class="nav-link">
@@ -24,17 +24,17 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <span class="menu-title">Basic UI Elements</span>
+            <span class="menu-title">Students</span>
             <i class="menu-arrow"></i>
             <i class="mdi mdi-crosshairs-gps menu-icon"></i>
           </a>
           <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="/students/create">Buttons</a>
+                <a class="nav-link" href="/students/create">Add Students</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/students">Dropdowns</a>
+                <a class="nav-link" href="/students">Show Student List</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
@@ -119,6 +119,26 @@
               </li>
             </ul>
           </div>
+          <div class="collapse" id="auth">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/login.html"> Login </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/register.html"> Register </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+              </li>
+            </ul>
+          </div>
+
         </li>
         <li class="nav-item">
           <a class="nav-link" href="docs/documentation.html" target="_blank">
@@ -126,6 +146,30 @@
             <i class="mdi mdi-file-document-box menu-icon"></i>
           </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="docs/documentation.html" target="_blank">
+              <span class="menu-title">Settings</span>
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="docs/documentation.html" target="_blank">
+              <span class="menu-title">Term and Condition</span>
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="docs/documentation.html" target="_blank">
+              <span class="menu-title">Documentation</span>
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="docs/documentation.html" target="_blank">
+              <span class="menu-title">Documentation</span>
+              <i class="mdi mdi-file-document-box menu-icon"></i>
+            </a>
+          </li>
       </ul>
     </nav>
    <!-- partial -->
