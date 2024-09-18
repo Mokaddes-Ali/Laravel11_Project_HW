@@ -21,64 +21,6 @@ class StudentController extends Controller
         return view('students.create');
     }
 
-//     public function store(Request $request, FlasherInterface $flasher)
-// {
-//     // Input validation
-//     $request->validate([
-//         'name' => 'required|string|max:255',
-//         'date_of_birth' => 'required|date',
-//         'gender' => 'required|in:male,female,other',
-//         'address' => 'required|string|max:255',
-//         'religion' => 'required|string|max:50',
-//         'nationality' => 'required|string|max:50',
-//         'email' => 'required|email|max:255|unique:students',
-//         'phone' => 'required|regex:/^[0-9]{10,15}$/',
-//         'parents_name' => 'required|string|max:255',
-//         'parents_phone' => 'required',
-//         'course' => 'required|string|max:100',
-//         'admission_date' => 'required|date',
-//         'admission_fee' => 'required|numeric|min:0',
-//         'aditional_note' => 'nullable|string|max:1000',
-//         'profile_image' =>'required|image|mimes:jpeg,png,gif|max:2048',
-//     ]);
-
-//     $image_rename = '';
-//     if ($request->hasFile('profile_image')) {
-//         $image = $request->file('profile_image');
-//         $ext = $image->getClientOriginalExtension();
-//         $image_rename = time() . '_' . rand(100000, 10000000) . '.' . $ext;
-//         $image->move(public_path('images'), $image_rename);
-//     }
-
-
-//     $student = new Student();
-
-//     $student->name = $request->name;
-//     $student->date_of_birth = $request->date_of_birth;
-//     $student->gender = $request->gender;
-//     $student->address = $request->address;
-//     $student->religion = $request->religion;
-//     $student->nationality = $request->nationality;
-//     $student->email = $request->email;
-//     $student->phone = $request->phone;
-//     $student->parents_name = $request->parents_name;
-//     $student->parents_phone = $request->parents_phone;
-//     $student->course = $request->course;
-//     $student->admission_date = $request->admission_date;
-//     $student->admission_fee = $request->admission_fee;
-//     $student->aditional_note = $request->aditional_note;
-//     $student->profile_image = $image_rename;
-
-//     $student->save();
-
-//     $flasher->addSuccess('Student added successfully!');
-
-//         return redirect()-> route('students.index');
-
-
-// }
-
-
 
 public function store(Request $request , FlasherInterface $flasher)
 {
@@ -128,19 +70,14 @@ public function store(Request $request , FlasherInterface $flasher)
         'extra_curriculum' => 'nullable|string|max:255',
     ]);
 
-    // Handle file uploads
-    $files = [
-        'photo' => $request->file('photo'),
-        'student_signature' => $request->file('student_signature'),
-    ];
-
-    foreach ($files as $key => $file) {
-        if ($file) {
-            $filename = time() . '_' . rand(100000, 10000000) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images'), $filename);
-            $data[$key] = $filename;
+    $image_rename = '';
+        if ($request->hasFile('photo')) {
+            $image = $request->file('photo');
+            $ext = $image->getClientOriginalExtension();
+            $image_rename = time() . '_' . rand(100000, 10000000) . '.' . $ext;
+            $image->move(public_path('images'), $image_rename);
         }
-    }
+
 
     // Create a new student record
     $student = new Student();
@@ -256,11 +193,11 @@ public function store(Request $request , FlasherInterface $flasher)
          return redirect()->route('students.index')->with('success', 'Student updated successfully.');
      }
 
-    public function destroy($id)
+    public function destroy($id, FlasherInterface $flasher)
     {
         $student = Student::findOrFail($id);
         $student->delete();
-        $this->flasher->addSuccess('Student deleted successfully!');
+        $flasher->addSuccess('Student deleted successfully!');
         return redirect()->route('students.index');
     }
 

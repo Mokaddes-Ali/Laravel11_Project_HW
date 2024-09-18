@@ -42,13 +42,17 @@
                 <li class="custom-list-item">Family Income: {{ $student->family_income }}</li>
             </ul>
         </div>
-        <div class="custom-section guardian-details">
-            <h2 class="custom-section-title">Guardian Details</h2>
+        <div class="custom-section additional-info">
+            <h2 class="custom-section-title">Additional Information</h2>
             <ul class="custom-list">
-                <li class="custom-list-item">Guardian's Name: {{ $student->guardian_name }}</li>
-                <li class="custom-list-item">Guardian's Relation: {{ $student->guardian_relation }}</li>
-                <li class="custom-list-item">Guardian's Occupation: {{ $student->guardian_occupation }}</li>
-                <li class="custom-list-item">Guardian's Number: {{ $student->guardian_number }}</li>
+                <li class="custom-list-item">Scholarship Info: {{ $student->scholarship_info }}</li>
+                <li class="custom-list-item">Teacher Reference: {{ $student->teacher_reference }}</li>
+                <li class="custom-list-item">Admission Date: {{ $student->admite_date }}</li>
+                <li class="custom-list-item">Course: {{ $student->course }}</li>
+                <li class="custom-list-item">Admission Fee: {{ $student->admission_fee }}</li>
+                <li class="custom-list-item">Disabilities: {{ $student->disabilities }}</li>
+                <li class="custom-list-item">Health Insurance: {{ $student->health_insurance }}</li>
+                <li class="custom-list-item">Extra Curriculum: {{ $student->extra_curriculum }}</li>
             </ul>
         </div>
         <div class="custom-section academic-details">
@@ -63,17 +67,14 @@
                 <li class="custom-list-item">Admission Test Result: {{ $student->admission_test_result }}</li>
             </ul>
         </div>
-        <div class="custom-section additional-info">
-            <h2 class="custom-section-title">Additional Information</h2>
+
+        <div class="custom-section guardian-details">
+            <h2 class="custom-section-title">Guardian Details</h2>
             <ul class="custom-list">
-                <li class="custom-list-item">Scholarship Info: {{ $student->scholarship_info }}</li>
-                <li class="custom-list-item">Teacher Reference: {{ $student->teacher_reference }}</li>
-                <li class="custom-list-item">Admission Date: {{ $student->admite_date }}</li>
-                <li class="custom-list-item">Course: {{ $student->course }}</li>
-                <li class="custom-list-item">Admission Fee: {{ $student->admission_fee }}</li>
-                <li class="custom-list-item">Disabilities: {{ $student->disabilities }}</li>
-                <li class="custom-list-item">Health Insurance: {{ $student->health_insurance }}</li>
-                <li class="custom-list-item">Extra Curriculum: {{ $student->extra_curriculum }}</li>
+                <li class="custom-list-item">Guardian's Name: {{ $student->guardian_name }}</li>
+                <li class="custom-list-item">Guardian's Relation: {{ $student->guardian_relation }}</li>
+                <li class="custom-list-item">Guardian's Occupation: {{ $student->guardian_occupation }}</li>
+                <li class="custom-list-item">Guardian's Number: {{ $student->guardian_number }}</li>
             </ul>
         </div>
     </div>
