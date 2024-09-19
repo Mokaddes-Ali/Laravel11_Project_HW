@@ -35,12 +35,17 @@
         padding: 20px;
         border-radius: 20px;
     }
+    .contentButton {
+        text-align: right;
+    }
 </style>
 @extends('layouts.master')
-
 @section('content')
 <div class="container backgroundColor mt-5">
     <h2 class="heading">Student Admission Form</h2>
+    <div class="contentButton">
+    <button type="button" class="btn btn-danger"><a class="dropdown-item" href="{{ route('students.index') }}">Show List </a></button>
+</div>
     <div class="herocontent">
     <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
         @csrf

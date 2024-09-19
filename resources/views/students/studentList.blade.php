@@ -1,8 +1,17 @@
+<style>
+      .contentButton {
+        text-align: right;
+    }
+</style>
+
 @extends('layouts.master')
 
 @section('content')
 <div class="container">
     <h2 class="my-4">Students List</h2>
+    <div class="contentButton">
+        <button type="button" class="btn btn-danger"><a class="dropdown-item" href="{{ route('students.create') }}">Add Student </a></button>
+    </div>
 
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
