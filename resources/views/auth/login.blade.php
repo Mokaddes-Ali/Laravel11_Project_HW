@@ -1,46 +1,20 @@
 <x-guest-layout>
-    {{-- <!-- Form Background Image -->
-    <form method="POST" action="{{ route('login') }}" class=" bg-opacity-75 p-8 rounded-md shadow-lg"
-        style="background-image: url('https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" class="bg-red-500" :value="__('Password')" />
-            <x-text-input id="password" class="block bg-none border-lime-600 mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-
-
-
-
-        <!-- Dynamic Contact Image from Google -->
-        <div class="mt-6 text-center">
-            <img src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg" alt="Contact Image" class="rounded-full w-24 h-24 mx-auto">
-        </div>
-    </form> --}}
 
     <div class="font-[sans-serif]">
+           <!-- Logo and Text -->
+           <div class="text-center mb-2">
+            <img src="https://media.licdn.com/dms/image/v2/C4E0BAQFJxu3cwylvvQ/company-logo_200_200/company-logo_200_200/0/1639032932352/themezonetechnology_logo?e=2147483647&v=beta&t=G3qx9gzGfs3lYA4M0CESrDwSwQUEXs9h15Zhh3GMupQ"
+            class="mx-auto w-56 h-28 mt-3 rounded-3xl">
+            <h1 class="text-blue-900 text-2xl font-bold">Welcome To Themezone Software</h1>
+        </div>
+
         <div class="min-h-screen flex fle-col items-center justify-center py-6 px-4">
-          <div class="grid md:grid-cols-2 items-center gap-4 max-w-6xl w-full">
-            <div class="border border-gray-300 rounded-lg p-6 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
+          <div class="grid md:grid-cols-2 items-center -mt-44 gap-2 max-w-6xl w-full">
+            <div class="border border-gray-300 rounded-lg  p-3 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
                <form method="POST" action="{{ route('login') }}" class=" bg-opacity-75">
                  @csrf
-                <div class="mb-8">
-                  <h3 class="text-gray-800 text-3xl font-extrabold">Sign in</h3>
-                  <p class="text-gray-500 text-sm mt-4 leading-relaxed">Sign in to your account and explore a world of possibilities. Your journey begins here.</p>
+                <div class="mb-3">
+                  <h3 class="text-gray-900 text-3xl text-center font-bold">Sign in</h3>
                 </div>
 
                 <div>

@@ -1,192 +1,3 @@
-{{-- @extends('layouts.master')
-
-@section('content')
-<div class="container">
-    <h1 class="mb-4">Add New Student</h1>
-    <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="row">
-            <!-- Row 1: Name and Date of Birth -->
-            <div class="col-md-6 mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" name="name" id="name" class="form-control custom-input" value="{{ old('name') }}" placeholder="Enter Name">
-                @error('name')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="date_of_birth" class="form-label">Date of Birth</label>
-                <input type="date" name="date_of_birth" id="date_of_birth" class="form-control custom-input" value="{{ old('date_of_birth') }}" placeholder="Select Date">
-                @error('date_of_birth')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Row 2: Gender and Address -->
-            <div class="col-md-6 mb-3">
-                <label for="gender" class="form-label">Gender</label>
-                <select name="gender" id="gender" class="form-select custom-input">
-                    <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
-                    <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>
-                    <option value="other" {{ old('gender') == 'other' ? 'selected' : '' }}>Other</option>
-                </select>
-                @error('gender')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="address" class="form-label">Address</label>
-                <input type="text" name="address" id="address" class="form-control custom-input" value="{{ old('address') }}" placeholder="Enter Address">
-                @error('address')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Row 3: Religion and Nationality -->
-            <div class="col-md-6 mb-3">
-                <label for="religion" class="form-label">Religion</label>
-                <select aname="religion" id="religion" class="form-select custom-input">
-                    <option value="select" {{ old('religion') == 'select' ? 'selected' : '' }}>Select</option>
-                    <option value="muslim" {{ old('religion') == 'muslim' ? 'selected' : '' }}>Muslim</option>
-                    <option value="hindu" {{ old('religion') == 'hindu' ? 'selected' : '' }}>Hindu</option>
-                    <option value="others" {{ old('religion') == 'others' ? 'selected' : '' }}>Others</option>
-                </select>
-                @error('religion')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="nationality" class="form-label">Nationality</label>
-                <select name="nationality" id="nationality" class="form-select custom-input">
-                    <option value="select" {{ old('nationality') == 'select' ? 'selected' : '' }}>Select</option>
-                    <option value="bangladesh" {{ old('nationality') == 'bangladesh' ? 'selected' : '' }}>Bangladesh</option>
-                    <option value="india" {{ old('nationality') == 'india' ? 'selected' : '' }}>India</option>
-                    <option value="uk" {{ old('nationality') == 'uk' ? 'selected' : '' }}>UK</option>
-                </select>
-                @error('nationality')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Row 4: Email and Phone -->
-            <div class="col-md-6 mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" id="email" class="form-control custom-input" value="{{ old('email') }}" placeholder="Enter Email">
-                @error('email')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="phone" class="form-label">Phone</label>
-                <input type="text" name="phone" id="phone" class="form-control custom-input" value="{{ old('phone') }}" placeholder="Enter Phone">
-                @error('phone')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Row 5: Parents Name and Parents Phone -->
-            <div class="col-md-6 mb-3">
-                <label for="parents_name" class="form-label">Parents Name</label>
-                <input type="text" name="parents_name" id="parents_name" class="form-control custom-input" value="{{ old('parents_name') }}" placeholder="Enter Parents Name">
-                @error('parents_name')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="parents_phone" class="form-label">Parents Phone</label>
-                <input type="text" name="parents_phone" id="parents_phone" class="form-control custom-input" value="{{ old('parents_phone') }}" placeholder="Enter Parents Phone">
-                @error('parents_phone')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <!-- Row 6: Course, Admission Date, Admission Fee, and Additional Notes -->
-            <div class="col-md-6 mb-3">
-                <label for="course" class="form-label">Course</label>
-                <select name="course" id="course" class="form-select custom-input">
-                    <option value="select" {{ old('course') == 'select' ? 'selected' : '' }}>Select</option>
-                    <option value="webdevelopment" {{ old('course') == 'webdevelopment' ? 'selected' : '' }}>Web Development</option>
-                    <option value="webdesign" {{ old('course') == 'webdesign' ? 'selected' : '' }}>Web Design</option>
-                    <option value="webdeveloper" {{ old('course') == 'webdeveloper' ? 'selected' : '' }}>Web Developer</option>
-                </select>
-                @error('course')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="admission_date" class="form-label">Admission Date</label>
-                <input type="date" name="admission_date" id="admission_date" class="form-control custom-input" value="{{ old('admission_date') }}" placeholder="Select Date">
-                @error('admission_date')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="admission_fee" class="form-label">Admission Fee</label>
-                <input type="text" name="admission_fee" id="admission_fee" class="form-control custom-input" value="{{ old('admission_fee') }}" placeholder="Enter Admission Fee">
-                @error('admission_fee')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-
-            <div class="col-md-6 mb-3">
-                <label for="aditional_note" class="form-label">Additional Notes</label>
-                <input type="text" name="aditional_note" id="aditional_note" class="form-control custom-input" value="{{ old('aditional_note') }}" placeholder="Enter Additional Notes">
-                @error('aditional_note')
-                    <div class="text-danger">{{ $message }}</div>
-                @enderror
-            </div>
-        </div>
-
-        <!-- Row for Profile Image -->
-        <div class="mb-3">
-            <label for="profile_image" class="form-label">Profile Image</label>
-            <input type="file" name="profile_image" id="profile_image" class="form-control custom-input">
-            @error('profile_image')
-                <div class="text-danger">{{ $message }}</div>
-            @enderror
-        </div>
-
-        <div class="text-end">
-            <button type="submit" class="btn btn-primary">Create</button>
-        </div>
-    </form>
-</div>
-
-<style>
-    .custom-input {
-        color: #333;
-        background-color: #f9f9f9;
-        border-color: #ccc;
-        border-radius: 0.375rem;
-    }
-    .custom-input::placeholder {
-        color: #6c757d;
-    }
-    .custom-input:focus {
-        border-color: #007bff;
-        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
-    }
-    .btn-primary {
-        background-color: #007bff;
-        border-color: #007bff;
-        color: #fff;
-    }
-    .btn-primary:hover {
-        background-color: #0056b3;
-        border-color: #004085;
-    }
-</style>
-@endsection
- --}}
-
-
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  <style>
     .form-control {
@@ -199,7 +10,7 @@
     }
     .form-control.is-valid {
         border-color: #28a745;
-        background-color: #d4edda;
+        background-color: #d7bde2 ;
         color: #155724;
     }
     .error-message {
@@ -211,15 +22,28 @@
     .form-row {
         margin-bottom: 1rem;
     }
+    .backgroundColor {
+        background-color: #aed6f1 ;
+        padding: 4px;
+    }
+    .heading {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .herocontent {
+        padding: 20px;
+        border-radius: 20px;
+    }
 </style>
 @extends('layouts.master')
 
 @section('content')
-<div class="container mt-5">
-    <h2>Student Admission Form</h2>
+<div class="container backgroundColor mt-5">
+    <h2 class="heading">Student Admission Form</h2>
+    <div class="herocontent">
     <form action="{{ route('students.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
         <div class="form-row">
             <!-- Name -->
             <div class="form-group col-md-4">
@@ -298,7 +122,7 @@
 
         <div class="form-row">
             <!-- Blood Group -->
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-3">
                 <label for="blood_group">Blood Group:</label>
                 <select id="blood_group" name="blood_group" class="form-control @error('blood_group') is-invalid @enderror" required>
                     <option value="">Select Blood Group</option>
@@ -317,7 +141,7 @@
             </div>
 
             <!-- National ID -->
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-5">
                 <label for="national_id">National ID:</label>
                 <input type="text" id="national_id" name="national_id" value="{{ old('national_id') }}" class="form-control @error('national_id') is-invalid @enderror">
                 @error('national_id')
@@ -326,7 +150,7 @@
             </div>
 
             <!-- Permanent Address -->
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-4">
                 <label for="permanent_address">Permanent Address:</label>
                 <input type="text" id="permanent_address" name="permanent_address" value="{{ old('permanent_address') }}" class="form-control @error('permanent_address') is-invalid @enderror">
                 @error('permanent_address')
@@ -375,7 +199,7 @@
             </div>
 
             <!-- Marital Status -->
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-5">
                 <label for="marital_status">Marital Status:</label>
                 <select id="marital_status" name="marital_status" class="form-control @error('marital_status') is-invalid @enderror" required>
                     <option value="">Select Marital Status</option>
@@ -388,20 +212,20 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
-            <!-- Father's Name -->
-            <div class="form-group col-md-3">
+              <!-- Father's Name -->
+              <div class="form-group col-md-3">
                 <label for="father_name">Father's Name:</label>
                 <input type="text" id="father_name" name="father_name" value="{{ old('father_name') }}" class="form-control @error('father_name') is-invalid @enderror">
                 @error('father_name')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
+        </div>
+
+        <div class="form-row">
 
             <!-- Father's Phone -->
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
                 <label for="father_phone">Father's Phone:</label>
                 <input type="text" id="father_phone" name="father_phone" value="{{ old('father_phone') }}" class="form-control @error('father_phone') is-invalid @enderror">
                 @error('father_phone')
@@ -424,11 +248,8 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
-            <!-- Father's Occupation -->
-            <div class="form-group col-md-4">
+             <!-- Father's Occupation -->
+             <div class="form-group col-md-5">
                 <label for="father_occupation">Father's Occupation:</label>
                 <select id="father_occupation" name="father_occupation" class="form-control @error('father_occupation') is-invalid @enderror" required>
                     <option value="">Select Occupation</option>
@@ -441,7 +262,9 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
+        </div>
 
+        <div class="form-row">
             <!-- Mother's Name -->
             <div class="form-group col-md-4">
                 <label for="mother_name">Mother's Name:</label>
@@ -459,9 +282,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
             <!-- Mother's Education -->
             <div class="form-group col-md-4">
                 <label for="mother_education">Mother's Education:</label>
@@ -477,7 +297,9 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
+        </div>
 
+        <div class="form-row">
             <!-- Mother's Occupation -->
             <div class="form-group col-md-4">
                 <label for="mother_occupation">Mother's Occupation:</label>
@@ -501,18 +323,17 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
-
-            <!-- Guardian Name -->
-            <div class="form-group col-md-4">
+             <!-- Guardian Name -->
+             <div class="form-group col-md-4">
                 <label for="guardian_name">Guardian's Name:</label>
                 <input type="text" id="guardian_name" name="guardian_name" value="{{ old('guardian_name') }}" class="form-control @error('guardian_name') is-invalid @enderror">
                 @error('guardian_name')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
+        </div>
+
+        <div class="form-row">
 
             <!-- Guardian Relation -->
             <div class="form-group col-md-4">
@@ -527,11 +348,8 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
-            <!-- Guardian Occupation -->
-            <div class="form-group col-md-4">
+             <!-- Guardian Occupation -->
+             <div class="form-group col-md-4">
                 <label for="guardian_occupation">Guardian's Occupation:</label>
                 <select id="guardian_occupation" name="guardian_occupation" class="form-control @error('guardian_occupation') is-invalid @enderror" required>
                     <option value="">Select Occupation</option>
@@ -553,7 +371,9 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
+        </div>
 
+        <div class="form-row">
             <!-- SSC Roll -->
             <div class="form-group col-md-4">
                 <label for="ssc_roll">SSC Roll:</label>
@@ -562,9 +382,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
             <!-- SSC Registration -->
             <div class="form-group col-md-4">
                 <label for="ssc_reg">SSC Registration:</label>
@@ -582,7 +399,8 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-
+        </div>
+            <div class="form-row">
             <!-- SSC Board -->
             <div class="form-group col-md-4">
                 <label for="ssc_board">SSC Board:</label>
@@ -597,10 +415,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
-
             <!-- Previous School -->
             <div class="form-group col-md-4">
                 <label for="previous_school">Previous School:</label>
@@ -609,9 +423,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
 
             <!-- Admission Test Roll -->
             <div class="form-group col-md-4">
@@ -622,6 +433,9 @@
                 @enderror
             </div>
 
+            </div>
+
+            <div class="form-row">
             <!-- Admission Test Result -->
             <div class="form-group col-md-4">
                 <label for="admission_test_result">Admission Test Result:</label>
@@ -630,9 +444,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
 
             <!-- Scholarship Info -->
             <div class="form-group col-md-4">
@@ -642,9 +453,6 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
-        </div>
-
-        <div class="form-row">
             <!-- Teacher Reference -->
             <div class="form-group col-md-4">
                 <label for="teacher_reference">Teacher Reference:</label>
@@ -653,9 +461,11 @@
                     <div class="error-message">{{ $message }}</div>
                 @enderror
             </div>
+        </div>
 
+        <div class="form-row">
         <!-- Admission Information -->
-        <div class="mb-3">
+        <div class="mb-3 col-md-3">
             <label for="admite_date" class="form-label">Admission Date</label>
             <input type="date" class="form-control @error('admite_date') is-invalid @enderror" id="admite_date" name="admite_date" value="{{ old('admite_date') }}">
             @error('admite_date')
@@ -665,7 +475,7 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4 col-md-4">
             <label for="course" class="form-label">Course</label>
             <input type="text" class="form-control @error('course') is-invalid @enderror" id="course" name="course" value="{{ old('course') }}">
             @error('course')
@@ -675,7 +485,7 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        <div class="mb-5 col-md-5">
             <label for="admission_fee" class="form-label">Admission Fee</label>
             <input type="text" class="form-control @error('admission_fee') is-invalid @enderror" id="admission_fee" name="admission_fee" value="{{ old('admission_fee') }}">
             @error('admission_fee')
@@ -684,8 +494,11 @@
                 </div>
             @enderror
         </div>
-        <!-- Other Information -->
-        <div class="mb-3">
+    </div>
+
+     <div class="form-row">
+             <!-- Other Information -->
+        <div class="mb-3 col-md-4">
             <label for="disabilities" class="form-label">Disabilities</label>
             <input type="text" class="form-control @error('disabilities') is-invalid @enderror" id="disabilities" name="disabilities" value="{{ old('disabilities') }}">
             @error('disabilities')
@@ -694,8 +507,7 @@
                 </div>
             @enderror
         </div>
-
-        <div class="mb-3">
+            <div class="mb-3 col-md-3">
             <label for="health_insurance" class="form-label">Health Insurance</label>
             <input type="text" class="form-control @error('health_insurance') is-invalid @enderror" id="health_insurance" name="health_insurance" value="{{ old('health_insurance') }}">
             @error('health_insurance')
@@ -705,7 +517,7 @@
             @enderror
         </div>
 
-        <div class="mb-3">
+        <div class="mb-3 col-md-5">
             <label for="extra_curriculum" class="form-label">Extra Curriculum</label>
             <input type="text" class="form-control @error('extra_curriculum') is-invalid @enderror" id="extra_curriculum" name="extra_curriculum" value="{{ old('extra_curriculum') }}">
             @error('extra_curriculum')
@@ -714,8 +526,10 @@
                 </div>
             @enderror
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Student</button>
     </form>
+</div>
 </div>
 
 @endsection
