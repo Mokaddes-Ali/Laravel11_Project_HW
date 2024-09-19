@@ -1,6 +1,7 @@
 <style>
       .contentButton {
         text-align: right;
+        margin-bottom: 10px;
     }
 </style>
 
