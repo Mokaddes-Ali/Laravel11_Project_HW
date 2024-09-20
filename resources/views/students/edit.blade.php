@@ -64,7 +64,8 @@
             <!-- Photo -->
             <div class="form-group col-md-4">
                 <label for="photo">Photo:</label>
-                <input type="file" id="photo" name="photo" value="{{ old('photo', $student->photo) }}" class="form-control-file @error('photo') is-invalid @enderror">
+                <input type="file" id="photo" name="photo" class="form-control-file @error('photo') is-invalid @enderror">
+                <img src="{{ asset('images/'.$student->photo) }}" alt="img" width="50" height="50">
                 @error('photo')
                     <div class="error-message">{{ $message }}</div>
                 @enderror
