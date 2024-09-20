@@ -9,6 +9,12 @@
 
 @section('content')
 <div class="container">
+
+    @if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+@endif
     <h2 class="my-4">Students List</h2>
     <div class="contentButton">
         <button type="button" class="btn btn-danger"><a class="dropdown-item" href="{{ route('students.create') }}">Add Student </a></button>
@@ -46,17 +52,30 @@
                 </td>
                 <td>
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             Action
                         </button>
+
                         <ul class="dropdown-menu" aria-labelledby="actionDropdown">
-                            <li><a class="dropdown-item" href="{{ route('student.cv', $student->id) }}">Show</a></li>
-                            <li><a class="dropdown-item" href="{{ route('students.edit', $student->id) }}">Edit</a></li>
-                            <li>
+                            <li class="list-inline-item">
+                                <button class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Add">
+                                    <a class="" href="{{ route('student.cv', $student->id) }}">
+                                     <i class="fa fa-table"></i>
+                                    </a>
+                                </button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="btn btn-success btn-sm rounded-0" type="button" data-placement="top" >
+                                <a class="" href="{{ route('students.edit', $student->id) }}">
+                                 <i class="fa fa-edit"></i>
+                                </a>
+                                </button>
+                            </li>
+                            <li class="list-inline-item">
                                 <form action="{{ route('students.destroy', $student->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this student?');">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="dropdown-item">Delete</button>
+                                    <button class="btn btn-danger btn-sm rounded-0" type="submit" data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
                                 </form>
                             </li>
                         </ul>

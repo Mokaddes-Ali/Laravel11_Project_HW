@@ -1,7 +1,8 @@
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
  <style>
     .form-control {
-        transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+        transition: border-color 0.3s;
+        background-color: #a569bd;
     }
     .form-control.is-invalid {
         border-color: #dc3545;
@@ -10,7 +11,7 @@
     }
     .form-control.is-valid {
         border-color: #28a745;
-        background-color: #d7bde2 ;
+        background-color: #a569bd;
         color: #155724;
     }
     .error-message {
@@ -37,6 +38,9 @@
     }
     .contentButton {
         text-align: right;
+    }
+    .formtext {
+        background-color: #a569bd;
     }
 </style>
 @extends('layouts.master')
@@ -82,7 +86,7 @@
             <!-- Gender -->
             <div class="form-group col-md-4">
                 <label for="gender">Gender:</label>
-                <select id="gender" name="gender" class="form-control @error('gender') is-invalid @enderror" required>
+                <select id="gender" name="gender" class="form-control formtext @error('gender') is-invalid @enderror" required>
                     <option value="">Select Gender</option>
                     <option value="male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male</option>
                     <option value="female" {{ old('gender') == 'female' ? 'selected' : '' }}>Female</option>

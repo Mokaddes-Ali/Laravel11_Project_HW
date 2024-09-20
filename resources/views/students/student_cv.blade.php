@@ -1,8 +1,13 @@
 @extends('layouts.master')
 @section('content')
 <div class="custom-container">
+    <h1 class="text-center text-3xl font-bold text-gray-900">Student CV</h1>
+    <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-primary d-flex justify-content-start"><a class="dropdown-item" href="{{ route('students.create') }}">Add Student </a></button>
+        <button type="button" class="btn btn-success d-flex justify-content-end"><a class="dropdown-item" href="{{ route('students.index') }}">Show List</a></button>
+    </div>
     <div class="custom-profile">
-        <img src="{{ $student->photo }}" alt="Student Photo" class="custom-photo">
+        <img src="{{ asset('images/' .$student->photo) }}" alt="Student Photo" class="custom-photo" width="350" height="200">
         <h1 class="custom-name">{{ $student->name }}</h1>
         <p class="custom-email">{{ $student->email }}</p>
     </div>
@@ -97,9 +102,8 @@
 }
 
 .custom-photo {
-    max-width: 150px;
     border: 5px solid #007bff;
-    border-radius: 50%;
+    border-radius: 20%;
 }
 
 .custom-name {

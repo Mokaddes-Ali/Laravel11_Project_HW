@@ -76,7 +76,6 @@ public function up()
         $table->date('admite_date')->nullable();
         $table->string('course')->nullable();
         $table->decimal('admission_fee', 15, 2)->nullable();
-        $table->string('admission_fee_receipt')->nullable();
         $table->text('disabilities')->nullable();
         $table->text('health_insurance')->nullable();
         $table->text('extra_curriculum')->nullable();

@@ -1,17 +1,20 @@
 <x-guest-layout>
 
-    <div class="font-[sans-serif]">
+        <div class="relative  h-screen bg-cover bg-center"
+        style="background-image: url('https://img.freepik.com/free-photo/modern-futuristic-sci-fi-background_35913-2150.jpg?w=740&t=st=1726790759~exp=1726791359~hmac=d5b2ca49e2c2f995e36333cc42e0a3059049d8a411f45a24686e97539d963cdc');">
+            <!-- Overlay -->
+        <div class="absolute  inset-0 bg-slate-400  opacity-50"></div>
+        <div class="relative z-20 flex flex-col items-center justify-center min-h-screen">
            <!-- Logo and Text -->
-           <div class="text-center mb-2">
+           <div class="text-center mt-36 -mb-5">
             <img src="https://media.licdn.com/dms/image/v2/C4E0BAQFJxu3cwylvvQ/company-logo_200_200/company-logo_200_200/0/1639032932352/themezonetechnology_logo?e=2147483647&v=beta&t=G3qx9gzGfs3lYA4M0CESrDwSwQUEXs9h15Zhh3GMupQ"
-            class="mx-auto w-56 h-28 mt-3 rounded-3xl">
-            <h1 class="text-blue-900 text-2xl font-bold">Welcome To Themezone Software</h1>
-        </div>
+            class="mx-auto w-56 h-28 -mt-40 rounded-3xl">
+            <h1 class="text-[#EEDD82] pt-2 text-2xl font-bold">Welcome To Themezone Software</h1>
+           </div>
 
-        <div class="min-h-screen flex fle-col items-center justify-center py-6 px-4">
-          <div class="grid md:grid-cols-2 items-center -mt-44 gap-2 max-w-6xl w-full">
-            <div class="border border-gray-300 rounded-lg  p-3 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
-               <form method="POST" action="{{ route('login') }}" class=" bg-opacity-75">
+        <div class=" flex space-y-7 items-center justify-center py-6 px-4">
+            <div class="border border-gray-300 bg-blue-100 rounded-lg  p-3 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] max-md:mx-auto">
+               <form method="POST" action="{{ route('login') }}" class="w-80 p-5">
                  @csrf
                 <div class="mb-3">
                   <h3 class="text-gray-900 text-3xl text-center font-bold">Sign in</h3>
@@ -61,16 +64,14 @@
                   </div>
                 </div>
                 <div class="!mt-8">
-                    <x-primary-button class="w-full pl-52 shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                    <x-primary-button class="w-full pl-28 shadow-xl py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
                       Log in
                     </x-primary-button>
                   </div>
                 <p class="text-sm !mt-8 text-center text-gray-800">Don't have an account <a href="{{ route('register') }}" class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
               </form>
             </div>
-            <div class="lg:h-[400px] ml-24 md:h-[300px] max-md:mt-8">
-                <img src="https://readymadeui.com/login-image.webp" class="w-[600px] h-80 max-md:w-4/5 mx-auto block object-cover" alt="Dining Experience" />
-         </div>
-        </div>
       </div>
+    </div>
+    </div>
 </x-guest-layout>

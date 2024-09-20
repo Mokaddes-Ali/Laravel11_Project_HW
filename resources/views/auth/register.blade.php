@@ -57,7 +57,7 @@
 
                 <!-- Submit Button and Link -->
                 <div class="flex items-center justify-between mt-2">
-                    <a class="underline text-emerald-600 text-lg font-semibold hover:text-gray-900" href="{{ route('login') }}">
+                    <a class="underline text-white text-lg font-semibold hover:text-gray-900" href="{{ route('login') }}">
                         {{ __('Already registered?') }}
                     </a>
                     <x-primary-button class="ml-4">
