@@ -11,10 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('teachers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+       // 2. Teachers table with additional fields
+Schema::create('teachers', function (Blueprint $table) {
+    $table->id();
+    $table->string('first_name');
+    $table->string('last_name');
+    $table->string('email')->unique();
+    $table->string('phone')->nullable();
+    $table->string('address')->nullable();
+    $table->enum('gender', ['male', 'female', 'other'])->nullable();
+    $table->string('qualification')->nullable();
+    $table->string('department')->nullable();
+    $table->date('hire_date')->nullable();
+    $table->text('bio')->nullable();
+    $table->string('photo')->nullable();
+    $table->enum('status', ['active', 'inactive'])->default('active');
+    $table->string('social_media_links')->nullable();
+    $table->string('subjects')->nullable(); 
+    $table->timestamps();
+});
+
     }
 
     /**

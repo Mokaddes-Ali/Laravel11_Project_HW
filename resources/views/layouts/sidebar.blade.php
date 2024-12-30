@@ -36,48 +36,55 @@
               <li class="nav-item">
                 <a class="nav-link" href="/students">Show Student List</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
-              </li>
             </ul>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-            <span class="menu-title">Icons</span>
-            <i class="mdi mdi-contacts menu-icon"></i>
-          </a>
-          <div class="collapse" id="icons">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="pages/icons/font-awesome.html">Font Awesome</a>
-              </li>
-            </ul>
-          </div>
-        </li>
+            <a class="nav-link" data-bs-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <span class="menu-title">Teacher</span>
+              <i class="mdi mdi-contacts menu-icon"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/teachers/create') }}">Add Teacher</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/teachers') }}">List of Teachers</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false" aria-controls="forms">
-            <span class="menu-title">Forms</span>
+            <span class="menu-title">Subjects</span>
             <i class="mdi mdi-format-list-bulleted menu-icon"></i>
           </a>
           <div class="collapse" id="forms">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="pages/forms/basic_elements.html">Form Elements</a>
+                <a class="nav-link" href="{{ url('/subjects/create') }}">Create Subject</a>
               </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/subjects') }}">List of Subjects</a>
+                </li>
             </ul>
           </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-            <span class="menu-title">Charts</span>
+            <span class="menu-title">Classes</span>
             <i class="mdi mdi-chart-bar menu-icon"></i>
           </a>
           <div class="collapse" id="charts">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a>
+                <a class="nav-link" href="{{ url('/classes/create') }}">Classes Create</a>
               </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/classes') }}">List of Classes</a>
+                </li>
             </ul>
           </div>
         </li>
