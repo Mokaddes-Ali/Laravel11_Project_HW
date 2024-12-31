@@ -22,7 +22,7 @@ class StudentController extends Controller
     }
 
 
-public function store(Request $request , FlasherInterface $flasher)
+    public function store(Request $request, FlasherInterface $flasher)
 {
     // Input validation
     $request->validate([
@@ -128,12 +128,12 @@ public function store(Request $request , FlasherInterface $flasher)
     $student->save();
 
     if ($student) {
-
-    $flasher->addSuccess('Student Added successfully!');
-    return redirect()->route('students.index');
-} else {
-    return back()->with('fail', 'Student Updated failed');
-}
+        $flasher->addSuccess('Student Added successfully!');
+        return redirect()->route('students.index');
+    } else {
+        $flasher->addError('Student creation failed');
+        return back();
+    }
 }
 
 
@@ -260,31 +260,28 @@ public function store(Request $request , FlasherInterface $flasher)
     ]);
 
     if ($student) {
-        $flasher->addSuccess('Student added successfully!');
+        $flasher->addSuccess('Student updated successfully!');
         return redirect()->route('students.index');
     } else {
-        return back()->with('fail', 'Data update failed');
+        $flasher->addError('Data update failed');
+        return back();
     }
+}
 
 
+     public function destroy($id, FlasherInterface $flasher)
+     {
+         $student = Student::findOrFail($id);
+         if ($student) {
+             $imagePath = public_path('images/' . $student->photo);
+             if (file_exists($imagePath)) {
+                 unlink($imagePath);
+             }
+             $student->delete();
+             $flasher->addSuccess('Student deleted successfully!');
+             return redirect()->route('students.index');
+         }
      }
-
-
-    public function destroy($id, FlasherInterface $flasher)
-    {
-        $id=intval($id);
-
-        $student = Student::findOrFail($id);
-        if ($student) {
-            $imagePath = public_path('images/' . $student->photo);
-            if (file_exists($imagePath)) {
-                unlink($imagePath);
-            }
-        $student->delete();
-        $flasher->addSuccess('Student deleted successfully!');
-        return redirect()->route('students.index');
-        }
-    }
 
 
     public function studentshow($id)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ClassFee;
 use Illuminate\Http\Request;
+use Flasher\Prime\FlasherInterface;
 
 class ClassFeeController extends Controller
 {
@@ -21,7 +22,7 @@ class ClassFeeController extends Controller
     }
 
     // Store Method: Save new class fee to database
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $request->validate([
             'class_name' => 'required|unique:class_fees',
@@ -30,7 +31,10 @@ class ClassFeeController extends Controller
 
         ClassFee::create($request->all());
 
-        return redirect()->route('class_fees.index')->with('success', 'Class fee added successfully!');
+        // Show flash message using Flasher
+        $flasher->addSuccess('Class fee added successfully!');
+
+        return redirect()->route('class_fees.index');
     }
 
     // Edit Method: Show form to edit existing class fee
@@ -40,7 +44,7 @@ class ClassFeeController extends Controller
     }
 
     // Update Method: Save updated class fee to database
-    public function update(Request $request, ClassFee $classFee)
+    public function update(Request $request, ClassFee $classFee, FlasherInterface $flasher)
     {
         $request->validate([
             'class_name' => 'required|unique:class_fees,class_name,' . $classFee->id,
@@ -49,15 +53,21 @@ class ClassFeeController extends Controller
 
         $classFee->update($request->all());
 
-        return redirect()->route('class_fees.index')->with('success', 'Class fee updated successfully!');
+        // Show flash message using Flasher
+        $flasher->addSuccess('Class fee updated successfully!');
+
+        return redirect()->route('class_fees.index');
     }
 
     // Delete Method: Remove class fee from database
-    public function destroy(ClassFee $classFee)
+    public function destroy(ClassFee $classFee, FlasherInterface $flasher)
     {
         $classFee->delete();
 
-        return redirect()->route('class_fees.index')->with('success', 'Class fee deleted successfully!');
+        // Show flash message using Flasher
+        $flasher->addSuccess('Class fee deleted successfully!');
+
+        return redirect()->route('class_fees.index');
     }
 }
 

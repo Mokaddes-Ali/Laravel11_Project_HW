@@ -7,6 +7,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\OccupationAndEducationController;
 use App\Http\Controllers\ClassFeeController;
+use App\Http\Controllers\EducationBoardController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -71,6 +72,14 @@ Route::put('/occupation-and-education/{id}', [OccupationAndEducationController::
 Route::delete('/occupation-and-education/{id}', [OccupationAndEducationController::class, 'destroy'])->name('occupation-and-education.destroy');
 });
 
+Route::middleware('auth')->group(function () {
+Route::get('education-boards', [EducationBoardController::class, 'index'])->name('education-boards.index');
+Route::get('education-boards/create', [EducationBoardController::class, 'create'])->name('education-boards.create');
+Route::post('education-boards', [EducationBoardController::class, 'store'])->name('education-boards.store');
+Route::get('education-boards/{id}/edit', [EducationBoardController::class, 'edit'])->name('education-boards.edit');
+Route::put('education-boards/{id}', [EducationBoardController::class, 'update'])->name('education-boards.update');
+Route::delete('education-boards/{id}', [EducationBoardController::class, 'destroy'])->name('education-boards.destroy');
+});
 
 
 Route::middleware('auth')->group(function () {

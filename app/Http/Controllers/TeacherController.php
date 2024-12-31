@@ -6,6 +6,7 @@ use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Flasher\Prime\FlasherInterface;
 
 class TeacherController extends Controller
 {
@@ -29,7 +30,7 @@ class TeacherController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher)
     {
         $request->validate([
             'first_name' => 'required|string|max:255',
@@ -58,7 +59,10 @@ class TeacherController extends Controller
 
         Teacher::create($data);
 
-        return redirect()->route('teachers.index')->with('success', 'Teacher added successfully.');
+        // Flash success message
+        $flasher->addSuccess('Teacher added successfully.');
+
+        return redirect()->route('teachers.index');
     }
 
     /**
@@ -72,7 +76,7 @@ class TeacherController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Teacher $teacher)
+    public function update(Request $request, Teacher $teacher, FlasherInterface $flasher)
     {
         $request->validate([
             'first_name' => 'required|string|max:255',
@@ -106,13 +110,16 @@ class TeacherController extends Controller
 
         $teacher->update($data);
 
-        return redirect()->route('teachers.index')->with('success', 'Teacher updated successfully.');
+        // Flash success message
+        $flasher->addSuccess('Teacher updated successfully.');
+
+        return redirect()->route('teachers.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Teacher $teacher)
+    public function destroy(Teacher $teacher, FlasherInterface $flasher)
     {
         if ($teacher->photo && Storage::exists('public/' . $teacher->photo)) {
             Storage::delete('public/' . $teacher->photo);
@@ -120,7 +127,11 @@ class TeacherController extends Controller
 
         $teacher->delete();
 
-        return redirect()->route('teachers.index')->with('success', 'Teacher deleted successfully.');
+        // Flash success message
+        $flasher->addSuccess('Teacher deleted successfully.');
+
+        return redirect()->route('teachers.index');
     }
 }
+
 

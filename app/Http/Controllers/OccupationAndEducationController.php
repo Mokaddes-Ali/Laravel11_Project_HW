@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\OccupationAndEducation;
 use Illuminate\Http\Request;
+use Flasher\Prime\FlasherInterface; // Import FlasherInterface
 
 class OccupationAndEducationController extends Controller
 {
@@ -18,7 +19,7 @@ class OccupationAndEducationController extends Controller
         return view('occupation-and-education.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, FlasherInterface $flasher) // Add FlasherInterface to store method
     {
         $request->validate([
             'type' => 'nullable', // Made nullable
@@ -26,7 +27,11 @@ class OccupationAndEducationController extends Controller
         ]);
 
         OccupationAndEducation::create($request->all());
-        return redirect()->route('occupation-and-education.index')->with('success', 'Data added successfully.');
+
+        // Flasher success message
+        $flasher->addSuccess('Data added successfully.');
+
+        return redirect()->route('occupation-and-education.index');
     }
 
     public function edit($id)
@@ -35,7 +40,7 @@ class OccupationAndEducationController extends Controller
         return view('occupation-and-education.edit', compact('item'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id, FlasherInterface $flasher) // Add FlasherInterface to update method
     {
         $item = OccupationAndEducation::findOrFail($id);
 
@@ -45,14 +50,21 @@ class OccupationAndEducationController extends Controller
         ]);
 
         $item->update($request->all());
-        return redirect()->route('occupation-and-education.index')->with('success', 'Data updated successfully.');
+
+        // Flasher success message
+        $flasher->addSuccess('Data updated successfully.');
+
+        return redirect()->route('occupation-and-education.index');
     }
 
-    public function destroy($id)
+    public function destroy($id, FlasherInterface $flasher) // Add FlasherInterface to destroy method
     {
         $item = OccupationAndEducation::findOrFail($id);
         $item->delete();
-        return redirect()->route('occupation-and-education.index')->with('success', 'Data deleted successfully.');
+
+        // Flasher success message
+        $flasher->addSuccess('Data deleted successfully.');
+
+        return redirect()->route('occupation-and-education.index');
     }
 }
-
