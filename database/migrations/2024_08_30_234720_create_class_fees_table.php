@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('classes', function (Blueprint $table) {
+        Schema::create('class_fees', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // Class name (e.g., Class 1, Class 2)
-            $table->text('description')->nullable(); // Optional description for the class
+            $table->string('class_name')->unique();
+            $table->decimal('admission_fee', 10, 2);
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('class_fees');
     }
 };

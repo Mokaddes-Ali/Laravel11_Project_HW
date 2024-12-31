@@ -80,10 +80,10 @@
           <div class="collapse" id="charts">
             <ul class="nav flex-column sub-menu">
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/classes/create') }}">Classes Create</a>
+                <a class="nav-link" href="{{ url('/class_fees/create') }}">Classes Create</a>
               </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/classes') }}">List of Classes</a>
+                    <a class="nav-link" href="{{ url('/class_fees') }}">List of Classes</a>
                 </li>
             </ul>
           </div>
