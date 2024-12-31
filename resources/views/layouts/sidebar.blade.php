@@ -22,6 +22,58 @@
             <i class="mdi mdi-home menu-icon"></i>
           </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <span class="menu-title">Classes</span>
+              <i class="mdi mdi-chart-bar menu-icon"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/class_fees/create') }}">Classes Create</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/class_fees') }}">List of Classes</a>
+                  </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false" aria-controls="forms">
+              <span class="menu-title">Subjects</span>
+              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            </a>
+            <div class="collapse" id="forms">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ url('/subjects/create') }}">Create Subject</a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{ url('/subjects') }}">List of Subjects</a>
+                  </li>
+              </ul>
+            </div>
+          </li>
+
+            <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+                <span class="menu-title">Occupation and Education</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+                </a>
+                <div class="collapse" id="tables">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/occupation-and-education/create') }}">Add Occupation or Education</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/occupation-and-education') }}">List of Occupation and Education</a>
+                    </li>
+                </ul>
+                </div>
+            </li>
+
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
             <span class="menu-title">Students</span>
@@ -56,38 +108,6 @@
             </div>
           </li>
 
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#forms" aria-expanded="false" aria-controls="forms">
-            <span class="menu-title">Subjects</span>
-            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-          </a>
-          <div class="collapse" id="forms">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('/subjects/create') }}">Create Subject</a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/subjects') }}">List of Subjects</a>
-                </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-            <span class="menu-title">Classes</span>
-            <i class="mdi mdi-chart-bar menu-icon"></i>
-          </a>
-          <div class="collapse" id="charts">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ url('/class_fees/create') }}">Classes Create</a>
-              </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/class_fees') }}">List of Classes</a>
-                </li>
-            </ul>
-          </div>
-        </li>
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
             <span class="menu-title">Tables</span>

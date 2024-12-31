@@ -5,7 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\SubjectController;
-use App\Http\Controllers\ClassController;
+use App\Http\Controllers\OccupationAndEducationController;
 use App\Http\Controllers\ClassFeeController;
 
 Route::get('/', function () {
@@ -58,6 +58,17 @@ Route::post('class_fees', [ClassFeeController::class, 'store'])->name('class_fee
 Route::get('class_fees/{classFee}/edit', [ClassFeeController::class, 'edit'])->name('class_fees.edit');
 Route::put('class_fees/{classFee}', [ClassFeeController::class, 'update'])->name('class_fees.update');
 Route::delete('class_fees/{classFee}', [ClassFeeController::class, 'destroy'])->name('class_fees.destroy');
+});
+
+
+
+Route::middleware('auth')->group(function () {
+Route::get('/occupation-and-education', [OccupationAndEducationController::class, 'index'])->name('occupation-and-education.index');
+Route::get('/occupation-and-education/create', [OccupationAndEducationController::class, 'create'])->name('occupation-and-education.create');
+Route::post('/occupation-and-education', [OccupationAndEducationController::class, 'store'])->name('occupation-and-education.store');
+Route::get('/occupation-and-education/{id}/edit', [OccupationAndEducationController::class, 'edit'])->name('occupation-and-education.edit');
+Route::put('/occupation-and-education/{id}', [OccupationAndEducationController::class, 'update'])->name('occupation-and-education.update');
+Route::delete('/occupation-and-education/{id}', [OccupationAndEducationController::class, 'destroy'])->name('occupation-and-education.destroy');
 });
 
 
