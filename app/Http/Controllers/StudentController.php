@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\ClassFee;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Flasher\Prime\FlasherInterface;
+use Illuminate\Support\Facades\Storage;
 
 class StudentController extends Controller
 {
@@ -18,12 +19,15 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('students.create');
+        $students = ClassFee::all();
+        return view('students.create' , compact('students'));
     }
 
 
     public function store(Request $request, FlasherInterface $flasher)
 {
+
+
     // Input validation
     $request->validate([
         'name' => 'required|string|max:255',

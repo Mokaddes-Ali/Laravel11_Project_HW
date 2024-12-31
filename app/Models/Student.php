@@ -94,4 +94,9 @@ class Student extends Model
         'family_income' => 'decimal:2',
         'admission_fee' => 'decimal:2',
     ];
+
+    public function classFee()
+    {
+        return $this->belongsTo(ClassFee::class, 'course_id');
+    }
 }

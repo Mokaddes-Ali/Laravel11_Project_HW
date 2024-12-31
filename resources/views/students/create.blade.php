@@ -484,7 +484,7 @@
             @enderror
         </div>
 
-        <div class="mb-4 col-md-4">
+        {{-- <div class="mb-4 col-md-4">
             <label for="course" class="form-label">Course</label>
             <input type="text" class="form-control @error('course') is-invalid @enderror" id="course" name="course" value="{{ old('course') }}">
             @error('course')
@@ -503,8 +503,80 @@
                 </div>
             @enderror
         </div>
+
+        <div class="mb-4 col-md-4">
+            <label for="student" class="form-label">Student</label>
+            <select class="form-control @error('student') is-invalid @enderror" id="student" name="student">
+                <option value="">Select a student</option>
+                @foreach ($students as $student)
+                    <option value="{{ $student->id }}" {{ old('student') == $student->id ? 'selected' : '' }}>
+                        {{ $student->name }} - {{ $student->course }} ({{ $student->admission_fee }})
+                    </option>
+                @endforeach
+            </select>
+            @error('student')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+        </div>
+    </div> --}}
+
+
+    <div class="mb-4 col-md-4">
+        <label for="course" class="form-label">Course</label>
+        <input type="text" class="form-control @error('course') is-invalid @enderror" id="course" name="course" value="{{ old('course') }}">
+        @error('course')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
     </div>
 
+    <div class="mb-5 col-md-5">
+        <label for="admission_fee" class="form-label">Admission Fee</label>
+        <input type="text" class="form-control @error('admission_fee') is-invalid @enderror" id="admission_fee" name="admission_fee" value="{{ old('admission_fee') }}">
+        @error('admission_fee')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+
+    <div class="mb-4 col-md-4">
+        <label for="class_name" class="form-label">Class Name</label>
+        <select class="form-control @error('class_name') is-invalid @enderror" id="class_name" name="class_name">
+            <option value="">Select a class</option>
+            @foreach ($students as $student)
+                <option value="{{ $student->id }}" {{ old('class_name') == $student->id ? 'selected' : '' }}>
+                    {{ $student->class_name }}
+                </option>
+            @endforeach
+        </select>
+        @error('class_name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+
+    <div class="mb-4 col-md-4">
+        <label for="admission_fee" class="form-label">Admission Fee</label>
+        <select class="form-control @error('admission_fee') is-invalid @enderror" id="admission_fee" name="admission_fee">
+            <option value="">Select an admission fee</option>
+            @foreach ($students as $student)
+                <option value="{{ $student->admission_fee }}" {{ old('admission_fee') == $student->admission_fee ? 'selected' : '' }}>
+                    {{ $student->admission_fee }}
+                </option>
+            @endforeach
+        </select>
+        @error('admission_fee')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
+</div>
      <div class="form-row">
              <!-- Other Information -->
         <div class="mb-3 col-md-4">
